@@ -17,11 +17,13 @@ class TermUnix {
     public synchronized static int width() {
         if (width < 0)
             try {
-                width = 80;
                 String out = SimpleLaunch.run(null, ProcessBuilder.Redirect.INHERIT, "tput", "cols");
                 if (out != null)
                     width = Integer.parseInt(out.trim());
             } catch (Throwable ex) {
+            } finally {
+                if (width < 5)
+                    width = 80;
             }
         return width;
     }

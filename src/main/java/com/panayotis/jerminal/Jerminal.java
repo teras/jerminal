@@ -8,16 +8,14 @@ package com.panayotis.jerminal;
 import static com.panayotis.jerminal.SystemDependent.isWindows;
 
 /**
- *
  * @author teras
  */
 public class Jerminal {
 
     final static String EmphOn, EmphOff;
-    private final int width;
+    private static int width = -1;
 
     static {
-
         if (isWindows)
             EmphOn = EmphOff = "";
         else {
@@ -26,16 +24,9 @@ public class Jerminal {
         }
     }
 
-    {
-        width = isWindows ? TermWindows.width() : TermUnix.width();
-    }
-
-    public int getWidth() {
+    public static int getWidth() {
+        if (width < 0)
+            width = isWindows ? TermWindows.width() : TermUnix.width();
         return width;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Jerminal().width);
-    }
-
 }

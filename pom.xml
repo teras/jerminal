@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.panayotis</groupId>
     <artifactId>jerminal</artifactId>
-    <version>0.1</version>
+    <version>0.1.1</version>
     <name>jerminal</name>
     <description>Terminal helper functions for Java</description>
     <url>https://github.com/teras/jerminal</url>

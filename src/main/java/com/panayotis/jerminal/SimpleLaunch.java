@@ -43,7 +43,7 @@ public class SimpleLaunch {
             exec.waitFor();
             return out.toString();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            ex.printStackTrace(System.err);
             return null;
         }
     }
